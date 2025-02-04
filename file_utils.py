@@ -32,7 +32,7 @@ def read_docx_file(file_path):
 def read_pdf_file(file_path):
     """Read text content from a PDF file."""
     try:
-        doc = fitz.open(file_path)
+        doc = fitz.open(file_path, codec="utf-8")
         # Read only the first few pages to speed up processing
         num_pages_to_read = 3  # Adjust as needed
         full_text = []
