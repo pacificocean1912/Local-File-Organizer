@@ -32,7 +32,7 @@ def ensure_nltk_data():
     nltk.download('stopwords', quiet=True)
     nltk.download('punkt', quiet=True)
     nltk.download('wordnet', quiet=True)
-
+ensure_nltk_data()
 # Initialize models
 image_inference = None
 text_inference = None
@@ -160,7 +160,7 @@ def main():
         while not os.path.exists(input_path):
             message = f"Input path {input_path} does not exist. Please enter a valid path."
             if silent_mode:
-                with open(log_file, 'a') as f:
+                with open(log_file, 'a', encoding='utf-8') as f:
                     f.write(message + '\n')
             else:
                 print(message)
@@ -169,7 +169,7 @@ def main():
         # Confirm successful input path
         message = f"Input path successfully uploaded: {input_path}"
         if silent_mode:
-            with open(log_file, 'a') as f:
+            with open(log_file, 'a',encoding='utf-8') as f:
                 f.write(message + '\n')
         else:
             print(message)
@@ -185,7 +185,7 @@ def main():
         # Confirm successful output path
         message = f"Output path successfully set to: {output_path}"
         if silent_mode:
-            with open(log_file, 'a') as f:
+            with open(log_file, 'a',encoding='utf-8') as f:
                 f.write(message + '\n')
         else:
             print(message)
@@ -199,7 +199,7 @@ def main():
 
         message = f"Time taken to load file paths: {end_time - start_time:.2f} seconds"
         if silent_mode:
-            with open(log_file, 'a') as f:
+            with open(log_file, 'a',encoding='utf-8') as f:
                 f.write(message + '\n')
         else:
             print(message)
@@ -240,7 +240,7 @@ def main():
                     if text_content is None:
                         message = f"Unsupported or unreadable text file format: {fp}"
                         if silent_mode:
-                            with open(log_file, 'a') as f:
+                            with open(log_file, 'a',encoding='utf-8') as f:
                                 f.write(message + '\n')
                         else:
                             print(message)
@@ -280,7 +280,7 @@ def main():
             print("-" * 50)
             message = "Proposed directory structure:"
             if silent_mode:
-                with open(log_file, 'a') as f:
+                with open(log_file, 'a',encoding='utf-8') as f:
                     f.write(message + '\n')
             else:
                 print(message)
@@ -298,7 +298,7 @@ def main():
                 # Perform the actual file operations
                 message = "Performing file operations..."
                 if silent_mode:
-                    with open(log_file, 'a') as f:
+                    with open(log_file, 'a',encoding='utf-8') as f:
                         f.write(message + '\n')
                 else:
                     print(message)
@@ -311,7 +311,7 @@ def main():
 
                 message = "The files have been organized successfully."
                 if silent_mode:
-                    with open(log_file, 'a') as f:
+                    with open(log_file, 'a',encoding='utf-8') as f:
                         f.write("-" * 50 + '\n' + message + '\n' + "-" * 50 + '\n')
                 else:
                     print("-" * 50)
